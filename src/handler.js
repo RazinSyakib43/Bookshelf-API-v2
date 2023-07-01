@@ -85,14 +85,13 @@ const getAllBooksHandler = (request, h) => {
   }
 
   if (reading !== undefined) {
-    ngefilterBuku = ngefilterBuku.filter((book) => book.reading === !!Number(reading));
-    ngefilterBuku = ngefilterBuku.splice(0, 2);
+    ngefilterBuku = ngefilterBuku.filter((book) => book.reading === !!Number(reading)).splice(0, 2);
   }
 
   if (finished !== undefined) {
     ngefilterBuku = ngefilterBuku.filter((book) => book.finished === !!Number(finished));
     ngefilterBuku = ngefilterBuku.splice(0, 3);
-  } else if(finished){
+  } else if (finished) {
     ngefilterBuku = ngefilterBuku.filter((book) => book.finished === false);
     ngefilterBuku = ngefilterBuku.splice(0, 1);
   }
